@@ -161,7 +161,7 @@ class NumericColumn:
         -> None
 
         """
-       if self.serie is not None:
+        if self.serie is not None:
             self.n_unique = self.serie.nunique() 
 
     def set_missing(self):

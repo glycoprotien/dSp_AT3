@@ -7,7 +7,12 @@ def display_tab_df_content(file_path):
     dataset = Dataset(file_path)
 
     dataset.set_data()
+    st.title("Dataframe")
+    st.table(dataset.get_summary())
 
+
+    st.title("Columns")
+    dataset.set_table()
 
     st.sidebar.title("Data Exploration Options")
 
@@ -26,12 +31,6 @@ def display_tab_df_content(file_path):
         st.dataframe(dataset.get_sample(num_rows))
 
 
-    st.title("Dataframe")
-    st.table(dataset.get_summary())
-
-
-    st.title("Columns")
-    dataset.set_table()
 
 if __name__ == "__main__":
     st.title("Data Exploration App")

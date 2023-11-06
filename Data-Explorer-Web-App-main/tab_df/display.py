@@ -26,11 +26,11 @@ def display_tab_df_content(file_path):
         st.dataframe(dataset.get_sample(num_rows))
 
 
-    st.title("Data Summary")
+    st.title("Dataframe")
     st.table(dataset.get_summary())
 
 
-    st.title("Data Details")
+    st.title("Columns")
     dataset.set_table()
 
 if __name__ == "__main__":

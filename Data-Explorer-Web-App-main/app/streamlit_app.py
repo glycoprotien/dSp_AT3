@@ -44,12 +44,11 @@ with st.expander("ℹ️ - Streamlit application for performing data exploration
 
 # If a CSV file is uploaded, display the different tabs
 if st.session_state.file_path is not None:
-    st.session_state.df = pd.read_csv(st.session_state.file_path)
     tab_df, tab_num, tab_text, tab_date = st.tabs(["DataFrame", "Numeric Serie", "Text Serie", "Datetime Serie"])
     with tab_df:
         display_tab_df_content(file_path=st.session_state.file_path)
     with tab_num:
-        display_tab_num_content(df = st.session_state.df)
+        display_tab_num_content(df = pd.read_csv(st.session_state.file_path))
     with tab_text:
         pass
     with tab_date:

@@ -35,8 +35,8 @@ class Dataset:
         self.table = None
 
     def set_data(self):
-        self.n_rows = len(self.df)
-        self.n_cols = len(self.df.columns)
+        self.n_rows,self.n_cols = self.df.shape
+        
     
 
         self.n_duplicates = len(self.df[self.df.duplicated()])

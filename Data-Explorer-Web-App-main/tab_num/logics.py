@@ -1,7 +1,6 @@
 import pandas as pd
 import altair as alt
 
-
 class NumericColumn:
     """
     --------------------
@@ -28,8 +27,8 @@ class NumericColumn:
     -> histogram (alt.Chart): Altair histogram displaying the count for each bin value of a serie (default set to empty)
   
     """
-    def __init__(self, file_path=None, df=None):
-        self.file_path = file_path
+    def __init__(self, df):
+        # self.file_path = None
         self.df = df
         self.cols_list = []
         self.serie = None
@@ -64,12 +63,8 @@ class NumericColumn:
         -> None
 
         """
-        if self.df is None:
-            if self.file_path:
-                self.df = pd.read_csv(self.file_path)
-            else:
-                raise ValueError("No DataFrame or file path")
-
+        
+        # self.df = pd.read_csv(self.file_path)
         numeric_cols = self.df.select_dtypes(include=['number'])
         self.cols_list = numeric_cols.columns.tolist()
 
@@ -91,11 +86,6 @@ class NumericColumn:
         -> None
 
         """
-        self.df = pd.read_csv(self.file_path)
-
-        if col_name not in self.cols_list:
-            raise ValueError(f"Column '{col_name}' is not numeric.")
-
         self.serie = self.df[col_name]
 
 
@@ -357,7 +347,7 @@ class NumericColumn:
         """
         if self.serie is not None:
             self.histogram = alt.Chart(self.df).mark_bar().encode(
-                alt.X('value:Q', bin=alt.Bin(maxbins=20)),
+                alt.X('age:Q', bin=alt.Bin(maxbins=20)),
                 alt.Y('count():Q')
             ).properties(width=400, height=200)
         

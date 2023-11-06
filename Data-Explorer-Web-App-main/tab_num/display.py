@@ -2,7 +2,7 @@ import streamlit as st
 
 from tab_num.logics import NumericColumn
 
-def display_tab_num_content(file_path=None, df=None):
+def display_tab_num_content(df=None):
     """
     --------------------
     Description
@@ -27,7 +27,17 @@ def display_tab_num_content(file_path=None, df=None):
     -> None
 
     """
-    num_col = NumericColumn(file_path, df)
+
+    def alt_plot(col):
+        import altair as alt
+        draw = alt.Chart(st.session_state.df).mark_bar().encode(
+                        alt.X(f'{col}:Q', bin=alt.Bin(maxbins=20)),
+                        alt.Y('count():Q')
+                    ).properties(width=400, height=200)
+        return draw
+
+        # st.altair_chart(draw)
+    num_col = NumericColumn(df)
     num_col.find_num_cols()
     selected_column = st.selectbox("Select a numeric column", num_col.cols_list)
     if selected_column:
@@ -46,7 +56,8 @@ def display_tab_num_content(file_path=None, df=None):
         st.write("### Numeric Column Summary")
         st.table(num_col.get_summary())
         st.write("### Histogram")
-        st.altair_chart(num_col.histogram)
+        draw= alt_plot(selected_column)
+        st.altair_chart(draw)
         st.write("### Most Frequent Values")
         st.write(num_col.frequent)
 if __name__ == "__main__":

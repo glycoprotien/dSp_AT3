@@ -28,7 +28,7 @@ def display_tab_df_content(file_path):
 
     st.title("Data Summary")
     st.table(dataset.get_summary())
-
+#sa
 
     st.title("Data Details")
     dataset.set_table()

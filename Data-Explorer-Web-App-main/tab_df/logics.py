@@ -35,6 +35,7 @@ class Dataset:
         self.table = None
 
     def set_data(self):
+        self.df = pd.read_csv(self.file_path)
         self.n_rows,self.n_cols = self.df.shape
         
     

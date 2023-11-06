@@ -6,7 +6,7 @@ def display_tab_df_content(file_path):
 
 
     
-    Dataset.set_data()
+    Dataset.set_data(file_path)
     st.title("Dataframe")
     st.table(dataset.get_summary())
 

@@ -119,7 +119,7 @@ class Dataset:
 
     def set_columns(self):
         if self.is_df_none() is not True:
-            self.cols_list = list(self.df.columns)
+            self.cols_list = self.df.columns
         return None
         """
         --------------------
@@ -353,7 +353,7 @@ class Dataset:
                 data.append({"Description": col, "data_type": data_type, "memory": memory})
 
             return pd.DataFrame(data)
-        return pd.DataFrame(columns=["Description", "data_type", "memory"])
+        return None
 
             
  

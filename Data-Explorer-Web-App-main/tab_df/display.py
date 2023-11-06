@@ -37,7 +37,7 @@ if __name__ == "__main__":
     st.title("Data Exploration App")
 
     uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
-#as
+
     if uploaded_file is not None:
         display_tab_df_content(uploaded_file)
     """

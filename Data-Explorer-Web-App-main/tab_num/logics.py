@@ -28,7 +28,7 @@ class NumericColumn:
   
     """
     def __init__(self, df):
-        # self.file_path = None
+        self.file_path = None
         self.df = df
         self.cols_list = []
         self.serie = None

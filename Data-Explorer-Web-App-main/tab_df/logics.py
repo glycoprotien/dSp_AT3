@@ -346,10 +346,17 @@ class Dataset:
 
     def set_table(self):
         if self.is_df_none() is not True:
-            return self.df.info()
+            data = []
+            for col in self.cols_list:
+                data_type = str(self.df[col].dtype)
+                memory = self.df[col].memory_usage(deep=True)
+                data.append({"Description": col, "data_type": data_type, "memory": memory})
+
+            return pd.DataFrame(data)
+        return pd.DataFrame(columns=["Description", "data_type", "memory"])
 
             
-        return None
+ 
 
         """
         --------------------

@@ -37,7 +37,7 @@ class Dataset:
     def set_data(self):
         self.df = pd.read_csv(self.file_path)
         self.n_rows,self.n_cols = self.df.shape
-        
+
     
 
         self.n_duplicates = len(self.df[self.df.duplicated()])

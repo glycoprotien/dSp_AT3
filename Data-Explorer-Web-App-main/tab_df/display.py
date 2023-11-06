@@ -12,12 +12,14 @@ def display_tab_df_content(file_path):
 
 
     st.title("Columns")
-    dataset.set_table()
-
-    st.sidebar.title("Data Exploration Options")
+    st.table(dataset.set_table())
 
 
-    num_rows = st.sidebar.slider("Number of Rows to Display", min_value=1, max_value=dataset.n_rows, value=5)
+    st.sidebar.title("Explore Dataframe")
+
+    min_value = input()
+    max_value = input()
+    num_rows = st.sidebar.slider("Select Number of Rows to Display", min_value, max_value, value=5)
 
 
     display_method = st.sidebar.radio("Display Method", ["Head", "Tail", "Sample"])

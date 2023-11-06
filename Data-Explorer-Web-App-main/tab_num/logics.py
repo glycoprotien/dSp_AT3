@@ -91,8 +91,7 @@ class NumericColumn:
         -> None
 
         """
-        if self.df is None:
-            raise ValueError("No DataFrame has been loaded.")
+        self.df = pd.read_csv(self.file_path)
 
         if col_name not in self.cols_list:
             raise ValueError(f"Column '{col_name}' is not numeric.")

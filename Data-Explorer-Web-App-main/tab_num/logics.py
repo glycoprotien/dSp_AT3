@@ -28,7 +28,7 @@ class NumericColumn:
   
     """
     def __init__(self, df):
-        self.file_path = None
+        #self.file_path = None
         self.df = df
         self.cols_list = []
         self.serie = None
@@ -64,7 +64,7 @@ class NumericColumn:
 
         """
         
-        # self.df = pd.read_csv(self.file_path)
+        #self.df = pd.read_csv(self.file_path)
         numeric_cols = self.df.select_dtypes(include=['number'])
         self.cols_list = numeric_cols.columns.tolist()
 

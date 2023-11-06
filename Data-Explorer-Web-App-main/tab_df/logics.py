@@ -353,7 +353,7 @@ class Dataset:
                 data.append({"Description": col, "data_type": data_type, "memory": memory})
 
             return pd.DataFrame(data)
-        return None
+        return pd.DataFrame(columns=["Description", "data_type","memory"])
 
             
  

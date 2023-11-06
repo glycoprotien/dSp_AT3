@@ -346,7 +346,7 @@ class Dataset:
 
     def set_table(self):
         if self.is_df_none() is not True:
-            print(self.df.info())
+            self.df.info()
 
             
         return None

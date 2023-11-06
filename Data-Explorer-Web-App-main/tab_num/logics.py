@@ -26,8 +26,7 @@ class NumericColumn:
     -> n_zeros (int): Number of times a serie has values equal to 0 (default set to None)
     -> n_negatives (int): Number of times a serie has negative values (default set to None)
     -> histogram (alt.Chart): Altair histogram displaying the count for each bin value of a serie (default set to empty)
-    -> frequent (pd.DataFrame): Datframe containing the most frequest value of a serie (default set to empty)
-
+  
     """
     def __init__(self, file_path=None, df=None):
         self.file_path = file_path

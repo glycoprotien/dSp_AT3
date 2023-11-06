@@ -5,8 +5,8 @@ from tab_df.logics import Dataset
 def display_tab_df_content(file_path):
 
 
-    
-    Dataset.set_data(file_path)
+    Dataset.file_path=file_path
+    Dataset.set_data()
     st.title("Dataframe")
     st.table(dataset.get_summary())
 

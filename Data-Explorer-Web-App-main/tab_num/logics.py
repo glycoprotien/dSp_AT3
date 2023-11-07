@@ -67,6 +67,7 @@ class NumericColumn:
         #self.df = pd.read_csv(self.file_path)
         numeric_cols = self.df.select_dtypes(include=['number'])
         self.cols_list = numeric_cols.columns.tolist()
+        return None
 
     def set_data(self, col_name):
         """
@@ -87,6 +88,7 @@ class NumericColumn:
 
         """
         self.serie = self.df[col_name]
+        return None
 
 
     def convert_serie_to_num(self):

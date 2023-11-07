@@ -20,10 +20,10 @@ def display_tab_df_content(file_path):
     st.title("Explore Dataframe")
 
 
-    num_rows = st.slider("Select Number of Rows to Display", min_value, max_value, value=5)
+    num_rows = st.slider("Select Number of Rows to Display", min_value=5, max_value= dataset.n_cols, value=5)
 
 
-    display_method = st.sidebar.radio("Exploration Method", ["Head", "Tail", "Sample"])
+    display_method = st.radio("Exploration Method", ["Head", "Tail", "Sample"])
 
 
     if display_method == "Head":

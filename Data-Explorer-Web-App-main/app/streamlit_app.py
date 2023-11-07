@@ -49,7 +49,7 @@ if st.session_state.file_path is not None:
         display_tab_df_content(file_path=st.session_state.file_path)
         pass
     with tab_num:
-        display_tab_num_content(pd.read_csv(st.session_state.file_path))
+        display_tab_num_content()
     with tab_text:
         pass
     with tab_date:

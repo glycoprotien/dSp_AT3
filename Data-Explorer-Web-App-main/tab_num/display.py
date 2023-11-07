@@ -30,7 +30,7 @@ def display_tab_num_content(df=None):
 
     def alt_plot(col):
         import altair as alt
-        draw = alt.Chart(st.session_state.df).mark_bar().encode(
+        draw = alt.Chart(st.session_state.dataset.df).mark_bar().encode(
                         alt.X(f'{col}:Q', bin=alt.Bin(maxbins=20)),
                         alt.Y('count():Q')
                     ).properties(width=400, height=200)

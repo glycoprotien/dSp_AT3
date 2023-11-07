@@ -6,7 +6,7 @@ def display_tab_df_content(file_path):
 
 
     dataset = Dataset(file_path)
-
+    st.session_state['dataset'] = dataset
     dataset.set_data()
     dataset.set_dimensions()
     dataset.set_df()

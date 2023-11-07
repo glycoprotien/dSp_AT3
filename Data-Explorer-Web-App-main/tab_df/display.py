@@ -17,14 +17,13 @@ def display_tab_df_content(file_path):
     st.table(dataset.set_table())
 
 
-    st.sidebar.title("Explore Dataframe")
-
-    min_value = input()
-    max_value = input()
-    num_rows = st.sidebar.slider("Select Number of Rows to Display", min_value, max_value, value=5)
+    st.title("Explore Dataframe")
 
 
-    display_method = st.sidebar.radio("Display Method", ["Head", "Tail", "Sample"])
+    num_rows = st.slider("Select Number of Rows to Display", min_value, max_value, value=5)
+
+
+    display_method = st.sidebar.radio("Exploration Method", ["Head", "Tail", "Sample"])
 
 
     if display_method == "Head":

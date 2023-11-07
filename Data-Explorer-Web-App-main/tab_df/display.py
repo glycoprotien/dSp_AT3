@@ -28,7 +28,7 @@ def display_tab_df_content(file_path):
 
 
     if display_method == "Head":
-        st.dataframe(dataset.get_head(num_rows))
+        st.write(dataset.get_head(num_rows))
     elif display_method == "Tail":
         st.dataframe(dataset.get_tail(num_rows))
     elif display_method == "Sample":
